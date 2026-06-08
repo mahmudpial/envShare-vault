@@ -1,59 +1,43 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# EnvShare-Vault
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**EnvShare** is a secure, zero-knowledge payload transfer application designed for the volatile sharing of sensitive information, such as `.env` files, SSH configurations, and API credentials. Built with a focus on privacy, it ensures that your data is encrypted, transient, and automatically destroyed after use.
 
-## About Laravel
+## Core Philosophy
+In an era of accidental leaks and insecure communication, EnvShare provides a "set-and-forget" environment. Once a payload is generated, it exists only in an encrypted state, adhering to strict TTL (Time-To-Live) and access threshold limits.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Key Features
+* **Zero-Knowledge Architecture:** Data is encrypted locally before storage; the server holds no plaintext.
+* **Volatile Persistence:** Payloads automatically self-destruct upon expiration or reaching the maximum view threshold.
+* **Custom TTL Intervals:** Granular control over the lifespan of your secret (from 5 minutes to 24 hours).
+* **Access Thresholds:** Strictly limit the number of times a secret can be viewed.
+* **Audit Telemetry:** Secure audit tokens for tracking access without compromising the underlying secret.
+* **AES-256-GCM Encryption:** High-security standard for all stored data.
+* **Automated Notifications:** Real-time email alerts via Mailtrap/SMTP when a payload is accessed.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tech Stack
+* **Framework:** Laravel (PHP)
+* **Frontend:** Vue.js 3 with Inertia.js
+* **Styling:** Tailwind CSS
+* **Security:** AES-256 Encryption, Bcrypt, Rate Limiting
+* **Mail Service:** Mailtrap (Integration verified and configured)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Configuration Parameters
+EnvShare-Vault allows for precise control over your secure sessions:
+* **TTL Duration:** Configurable intervals (5m, 15m, 30m, 1h, 2h, 5h, 12h, 24h).
+* **Access Threshold:** Restrict usage to 1–5 views.
+* **Cryptographic Passphrase:** Optional secondary layer of protection for every payload.
+* **De-allocation Callbacks:** Automated email notifications via Mailtrap when a secure session is accessed.
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
-```
-
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Installation
+1. Clone the repository: `git clone https://github.com/yourusername/envshare.git`
+2. Install dependencies: `composer install && npm install`
+3. Configure your environment: `cp .env.example .env`
+4. Set Mailtrap credentials in `.env`
+5. Run migrations: `php artisan migrate`
+6. Serve the application:` php artisan serve`
 
 ## License
+This project is open-source and available under the MIT License.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# envShare-vault
+**EnvShare — Secure, Volatile, Zero-Knowledge Payload Transfer.**
+**Built with privacy by *Pial Mahmud*.**
