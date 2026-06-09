@@ -58,5 +58,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-# EnvShare — Secure, Volatile, Zero-Knowledge Payload Transfer.
-# Built with privacy by *Pial Mahmud*.
+### EnvShare — Secure, Volatile, Zero-Knowledge Payload Transfer.
+### Built with privacy by *Pial Mahmud*.
